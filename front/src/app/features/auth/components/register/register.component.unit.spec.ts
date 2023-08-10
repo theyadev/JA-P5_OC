@@ -70,7 +70,7 @@ describe('RegisterComponent', () => {
   });
 
   it('should set onError to true on error', () => {
-    const errorSpy = jest
+    jest
       .spyOn(authService, 'register')
       .mockReturnValueOnce(throwError(() => new Error()));
 
