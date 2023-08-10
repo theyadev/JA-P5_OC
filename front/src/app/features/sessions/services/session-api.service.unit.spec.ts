@@ -128,6 +128,18 @@ describe('SessionsService', () => {
     req.flush(testSession);
   });
 
+  it('should delete session', () => {
+    const testSessionId = '1';
+
+    service.delete(testSessionId).subscribe();
+
+    const req = httpController.expectOne(`${pathService}/${testSessionId}`);
+
+    expect(req.request.method).toBe('DELETE');
+
+    req.flush({});
+  });
+
   it('should participate in session', () => {
     const testSessionId = '1';
     const testUserId = '1';
