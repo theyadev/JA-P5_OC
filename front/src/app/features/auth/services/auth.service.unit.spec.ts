@@ -1,4 +1,5 @@
-import { HttpClientModule } from '@angular/common/http';
+import type { SessionInformation } from 'src/app/interfaces/sessionInformation.interface';
+
 import { TestBed } from '@angular/core/testing';
 import { expect } from '@jest/globals';
 
@@ -7,9 +8,8 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import { SessionInformation } from 'src/app/interfaces/sessionInformation.interface';
 
-describe('SessionsService', () => {
+describe('AuthService', () => {
   let service: AuthService;
   let httpController: HttpTestingController;
 

@@ -1,4 +1,5 @@
-import { HttpClientModule } from '@angular/common/http';
+import type { Session } from '../interfaces/session.interface';
+
 import { TestBed } from '@angular/core/testing';
 import { expect } from '@jest/globals';
 
@@ -7,7 +8,6 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import { Session } from '../interfaces/session.interface';
 
 describe('SessionsService', () => {
   let service: SessionApiService;
