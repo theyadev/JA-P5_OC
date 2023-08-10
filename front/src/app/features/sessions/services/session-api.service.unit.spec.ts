@@ -23,6 +23,10 @@ describe('SessionsService', () => {
     httpController = TestBed.inject(HttpTestingController);
   });
 
+  afterEach(() => {
+    httpController.verify();
+  });
+
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
