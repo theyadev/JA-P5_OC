@@ -47,7 +47,7 @@ class TestTeacherController {
         teachers.add(new Teacher(2L, "Doe", "John", null, null));
         teachers.add(new Teacher(3L, "Joffrey", "Cina", null, null));
         teacherDtos = new ArrayList<>();
-        teacherDtos.add(new TeacherDto(1L, "Robert", "Thomas", null, null));
+        teacherDtos.add(new TeacherDto(1L, "Last Name", "Test", null, null));
         teacherDtos.add(new TeacherDto(2L, "Doe", "John", null, null));
         teacherDtos.add(new TeacherDto(3L, "Cina", "Joffrey", null, null));
     }
@@ -65,7 +65,7 @@ class TestTeacherController {
 
         List<TeacherDto> body = (List<TeacherDto>) response.getBody();
         assertThat(body.size()).isEqualTo(3);
-        assertThat(body.get(0).getFirstName()).isEqualTo("Thomas");
+        assertThat(body.get(0).getFirstName()).isEqualTo("Test");
         assertThat(body.get(1).getFirstName()).isEqualTo("John");
         assertThat(body.get(2).getFirstName()).isEqualTo("Joffrey");
     }
@@ -82,7 +82,7 @@ class TestTeacherController {
 
         TeacherDto responseBody = (TeacherDto) response.getBody();
         assertThat(responseBody.getId()).isEqualTo(1L);
-        assertThat(responseBody.getFirstName()).isEqualTo("Thomas");
+        assertThat(responseBody.getFirstName()).isEqualTo("Test");
 
     }
 

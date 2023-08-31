@@ -65,7 +65,7 @@ class MyAuthControllerTests {
         mockMvc.perform(post("/api/auth/register")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
-                        "{ \"email\": \"yoga@studio.com\", \"password\": \"test!1234\", \"firstName\": \"Thomas\", \"lastName\": \"Robert\" }")
+                        "{ \"email\": \"yoga@studio.com\", \"password\": \"test!1234\", \"firstName\": \"Test\", \"lastName\": \"Last Name\" }")
                 .accept(MediaType.APPLICATION_JSON)
                 .with(csrf()))
                 .andExpect(status().isBadRequest())
