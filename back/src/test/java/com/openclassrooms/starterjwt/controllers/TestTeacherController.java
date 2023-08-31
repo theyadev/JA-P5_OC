@@ -38,7 +38,7 @@ class TestTeacherController {
     void beforeEach() {
         controller = new TeacherController(teacherService, teacherMapper);
         teachers = new ArrayList<>();
-        Teacher teacher = Teacher.builder()
+        teacher = Teacher.builder()
                 .id(1L)
                 .firstName("First Name")
                 .lastName("Last Name")

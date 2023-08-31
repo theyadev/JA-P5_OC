@@ -21,6 +21,8 @@ class MyAuthControllerTests {
     @Autowired
     private MockMvc mockMvc;
 
+    String randomEmail = "name" + System.currentTimeMillis() + "@gmail.com";
+
     @Test
     void testUserAuthentication() throws Exception {
         mockMvc.perform(post("/api/auth/login")
@@ -36,7 +38,7 @@ class MyAuthControllerTests {
     void testUserAuthentication_Unauthorized() throws Exception {
         mockMvc.perform(post("/api/auth/login")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{ \"email\": \"joffrey@studio.com\", \"password\": \"test!1234\" }")
+                .content("{ \"email\": \"aaaa@studio.com\", \"password\": \"test!1234\" }")
                 .accept(MediaType.APPLICATION_JSON)
                 .with(csrf()))
                 .andExpect(status().isUnauthorized())
@@ -47,10 +49,11 @@ class MyAuthControllerTests {
 
     @Test
     void testUserRegistration() throws Exception {
+        
+
         mockMvc.perform(post("/api/auth/register")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(
-                        "{ \"email\": \"thomas@robert.com\", \"password\": \"test!1234\", \"firstName\": \"Thomas\", \"lastName\": \"Robert\" }")
+                .content("{\"email\": \"" + randomEmail + "\", \"password\": \"test!1234\", \"firstName\": \"First Name\", \"lastName\": \"Last Name\" }")
                 .accept(MediaType.APPLICATION_JSON)
                 .with(csrf()))
                 .andExpect(status().isOk())
@@ -62,7 +65,7 @@ class MyAuthControllerTests {
         mockMvc.perform(post("/api/auth/register")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
-                        "{ \"email\": \"thomas@robert.com\", \"password\": \"test!1234\", \"firstName\": \"Thomas\", \"lastName\": \"Robert\" }")
+                        "{ \"email\": \"yoga@studio.com\", \"password\": \"test!1234\", \"firstName\": \"Thomas\", \"lastName\": \"Robert\" }")
                 .accept(MediaType.APPLICATION_JSON)
                 .with(csrf()))
                 .andExpect(status().isBadRequest())
